@@ -1,39 +1,39 @@
-// Сделать новый список, который будет содержать длины строк
+// Необходимо реализовать функцию getRanges, которая возвращает следующие результаты:
+// getRanges([0, 1, 2, 3, 4, 7, 8, 10]); --> "0-4,7-8,10"
+// getRanges([4, 7, 10]); --> "4,7,10"
+// getRanges([2, 3, 8, 9]); --> "2-3,8-9"
 
-const rows = [
-  "function",
-  "sum",
-  "(a, b,",
-  "...spread)",
-  "{ ... 2, 3, 4, 5)); ",
-  "// ",
-  "[3, 4, 5] - ",
-  "те самые",
-  "значения которые дописали и spread оператор ",
-  "добавил их в масив.",
-];
+// Время O(n)
+// Память O(n)
 
-const new_array = [];
+const getRanges = (arr) => {
+  let ans = [];
+  let firstNumberInInterval = arr[0];
+  let lastNumberInInterval = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === lastNumberInInterval + 1) {
+      lastNumberInInterval = arr[i];
+    } else {
+      if (firstNumberInInterval === lastNumberInInterval) {
+        ans.push(lastNumberInInterval.toString());
+      } else {
+        ans.push(`${firstNumberInInterval}-${lastNumberInInterval}`);
+      }
 
-const find_length = (arr) => {
-  for (let i = 0; i < arr.length; i += 1) {
-    new_array.push(rows[i].length);
+      firstNumberInInterval = arr[i];
+      lastNumberInInterval = arr[i];
+    }
   }
-  console.log(new_array);
-  return new_array;
+
+  if (firstNumberInInterval === lastNumberInInterval) {
+    ans.push(lastNumberInInterval.toString());
+  } else {
+    ans.push(`${firstNumberInInterval}-${lastNumberInInterval}`);
+  }
+  console.log(ans.join(","));
+  return ans.join(","); // ans.toString() работает некоректно
 };
 
-const find_length_2 = (arr) => {
-  arr.forEach((object) => {
-    new_array.push(object.length);
-  });
-
-  console.log(new_array);
-  return new_array;
-};
-
-const find_length_3 = (arr) => {
-  console.log(arr.map((object) => object.length));
-};
-
-find_length_3(rows);
+getRanges([0, 1, 2, 3, 4, 7, 8, 10]);
+getRanges([4, 7, 10]);
+getRanges([2, 3, 8, 9]);

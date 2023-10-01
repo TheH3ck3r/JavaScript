@@ -19,13 +19,14 @@
 // The two strings will be the same length.
 
 const neutralise = (s1, s2) => {
-  var answer = "";
+  let answer = [];
   for (let i = 0; i < s1.length; i++) {
     if (s1[i] == s2[i]) {
-      answer += s1[i];
-    } else answer += "0";
+      answer.push(s1[i]);
+    } else {
+      answer.push(0);
+    }
   }
-  return answer;
 };
 
 neutralise("+++--+---", "++----++-");

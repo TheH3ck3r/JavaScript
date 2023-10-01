@@ -18,14 +18,9 @@
 // 3. ("-++-", "-+-+") ➞ "-+00"
 // The two strings will be the same length.
 
-const neutralise = (s1, s2) => {
-  var answer = "";
-  for (let i = 0; i < s1.length; i++) {
-    if (s1[i] == s2[i]) {
-      answer += s1[i];
-    } else answer += "0";
-  }
-  return answer;
+const numberToString = (number) => {
+  console.log(number.toString())
+  return number.toString();
 };
 
-neutralise("+++--+---", "++----++-");
+numberToString(-11213)

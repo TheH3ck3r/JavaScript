@@ -28,5 +28,3 @@ const neutralise = (s1, s2) => {
     }
   }
 };
-
-neutralise("+++--+---", "++----++-");

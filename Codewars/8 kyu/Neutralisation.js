@@ -19,12 +19,9 @@
 // The two strings will be the same length.
 
 const neutralise = (s1, s2) => {
-  let answer = [];
+  var answer = "";
   for (let i = 0; i < s1.length; i++) {
-    if (s1[i] == s2[i]) {
-      answer.push(s1[i]);
-    } else {
-      answer.push(0);
-    }
+    answer += s1[i] != s2[i] ? "0" : s1[i];
   }
+  return answer;
 };

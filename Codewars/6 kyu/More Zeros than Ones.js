@@ -26,8 +26,8 @@ const moreZeros = (string) => {
 };
 
 // Smart solution:
-// const moreZeros = (s) => {
-//   [...new Set(s)].filter(
+// const moreZeros = (string) => {
+//   [...new Set(string)].filter(
 //     (val) => val.charCodeAt().toString(2).replace(/1/g, ``).length > 3
 //   );
 // };

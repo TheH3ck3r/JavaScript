@@ -24,12 +24,14 @@ const doMath = (string) => {
     (a, b) => a / b,
   ];
 
-  return Array.from(string.split(" "))
-    .sort((a, b) => a.match(/[a-z]/g)[0].localeCompare(b.match(/[a-z]/g)[0]))
-    .map((element) => +element.replace(/[a-z]/g, ""))
-    .reduce(
-      (res, number, i, sortedArr) =>
-        i === 0 ? sortedArr[0] : operations[(i - 1) % 4](res, number),
-      0
-    );
+  return Math.round(
+    Array.from(string.split(" "))
+      .sort((a, b) => a.match(/[a-z]/g)[0].localeCompare(b.match(/[a-z]/g)[0]))
+      .map((element) => +element.replace(/[a-z]/g, ""))
+      .reduce(
+        (res, number, i, sortedArr) =>
+          i === 0 ? sortedArr[0] : operations[(i - 1) % 4](res, number),
+        0
+      )
+  );
 };

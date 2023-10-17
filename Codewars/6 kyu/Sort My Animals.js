@@ -9,8 +9,6 @@
 // If an empty list is passed in, it should return an empty list back.
 
 const sortAnimal = (animals) =>
-  animals
-    .sort((a, b) => a.numberOfLegs - b.numberOfLegs)
-    .sort((a, b) => {
-      if (a.numberOfLegs == b.numberOfLegs) return a.name.localeCompare(b.name);
-    });
+  [...animals].sort(
+    (a, b) => a.numberOfLegs - b.numberOfLegs || a.name.localeCompare(b.name)
+  );

@@ -11,6 +11,14 @@
 
 //         length = 4
 
-function binarray(a) {
-  // Code!
-}
+const binarray = (array) => {
+  const countOfArrayNumbers = array.reduce(
+    (result, element) => result + element,
+    0
+  );
+  if (array.length / 2 == countOfArrayNumbers) return array.length;
+
+  return countOfArrayNumbers;
+};
+
+console.log(binarray([1, 0, 0, 0, 0, 0, 1, 1]));

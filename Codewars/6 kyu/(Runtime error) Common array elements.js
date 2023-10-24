@@ -6,12 +6,10 @@
 // common([1,2,2,3],[5,3,2,2],[7,3,2,2]) = 7 because 2,2 & 3 are common in the 3 arrays
 
 const common = (a, b, c) =>
-  a.reduce(
-    (result, element) =>
-      b.includes(element) && c.includes(element) ? result + element : result,
-    0
-  );
+  a
+    .filter((element) => b.includes(element) && c.includes(element))
+    .reduce((result, element) => result + element, 0);
 
-console.log(common([1, 2, 2, 3], [5, 3, 2, 2], [7, 3, 2, 2]));
+console.log(common([5, 5, 5, 5], [5, 5], [5, 5, 5]));
 
 // Runtime error

@@ -33,15 +33,14 @@
 
 // var john = nouveau(Person, 'John', 30); // same result as above
 
-// V1
-// answer = (Constructor, ...args) => new Constructor(...args);
-
-// function nouveau(Constructor, ...args) {
-//   return answer(Constructor, ...args);
-// }
-
-// V2 Работает, но не проходит 1 тест
+// V1 Работает, но не проходит тест; `new` is not allowed.: expected 'const result = (Constructor, ...args)…' not to match /\bnew\b/
 const result = (Constructor, ...args) => new Constructor(...args);
-const nouveau = (Constructor, ...args) => result(Constructor, ...args);
+const nouveau_V1 = (Constructor, ...args) => result(Constructor, ...args);
 
-console.log(nouveau(Person, "Guy"));
+// V2 Работает, но не проходит тест; constructor: function Fnc(){ return Fnc; }: expected Fnc{} to equal [Function fn]
+const nouveau_V2 = (ConstructorName, ...args) => {
+  var instance = Object.create(ConstructorName.prototype);
+  var result = Constructor.apply(instance, args);
+
+  return typeof result === "object" && result !== null ? result : instance;
+};

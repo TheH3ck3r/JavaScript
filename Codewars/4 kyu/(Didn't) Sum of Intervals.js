@@ -136,7 +136,6 @@ const sumIntervals = (ArrayOfIntervals) => {
 //   );
 // };
 
-
 // V6 (Пока не работает :( )
 const sumIntervals_V6 = (arrayOfIntervals) => {
   arrayOfIntervals
@@ -157,6 +156,13 @@ const sumIntervals_V6 = (arrayOfIntervals) => {
     0
   );
 };
+
+// V7 splice test
+const sumIntervals_V7 = (arrayOfIntervals) =>
+  arrayOfIntervals
+    .sort((a, b) => a[0] - b[0])
+    .filter((interval, i, arrayOfIntervals) => interval) // TODO: Доделать
+    .reduce((result, interval) => result + interval[1] - interval[0], 0);
 
 console.log(
   "\n Test 1: ",

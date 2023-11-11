@@ -11,14 +11,37 @@
 
 //         length = 4
 
-const binarray = (array) => {
-  const countOfArrayNumbers = array.reduce(
-    (result, element) => result + element,
-    0
-  );
-  if (array.length / 2 == countOfArrayNumbers) return array.length;
+// const binarray = (array) => {
+//   const countOfArrayNumbers = array.reduce(
+//     (result, element) => result + element,
+//     0
+//   );
+//   if (array.length / 2 == countOfArrayNumbers) return array.length;
 
-  return countOfArrayNumbers;
+//   return countOfArrayNumbers;
+// };
+
+const binarray = (array) => {
+  console.log("Рандомный тест с массивом: ", array);
+
+  if (
+    array.reduce((element, result) => result + element, 0) ==
+    array.length / 2
+  ) {
+    return array.length;
+  } else {
+    return "Unluck";
+  }
 };
 
-console.log(binarray([1, 0, 0, 0, 0, 0, 1, 1]));
+// ----------------------------------------Тесты-------------------------------------
+
+const genRandomArray = () => {
+  var randomArray = [];
+  for (let i = 0; i < 10; i++) {
+    randomArray.push(Math.round(Math.random()));
+  }
+  return randomArray;
+};
+
+console.log(binarray(genRandomArray()));

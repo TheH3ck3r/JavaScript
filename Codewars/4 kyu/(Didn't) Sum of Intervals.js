@@ -44,41 +44,41 @@
 // Your algorithm should be able to handle large intervals. All tested intervals are subsets of the range [-1000000000, 1000000000].
 
 // V1
-// const sumIntervals_V1 = (ArrayOfIntervals) =>
-//   ArrayOfIntervals.reduce((result, interval) => {
-//     console.log("interval = ", interval[1] - interval[0]);
-//     return result + interval[1] - interval[0];
-//   }, 0);
+const sumIntervals_V1 = (ArrayOfIntervals) =>
+  ArrayOfIntervals.reduce((result, interval) => {
+    console.log("interval = ", interval[1] - interval[0]);
+    return result + interval[1] - interval[0];
+  }, 0);
 
 // V2
-// const sumIntervals_V2 = (ArrayOfIntervals) => {
-//   sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).map(
-//     (interval, i, sortedArray) => {
-//       interval[1] > sortedArray[i + 1][0] && !sortedArray[i + 1][0]
-//         ? ""[interval[1], sortedArray[i + 1][0]]
-//         : "";
-//     }
-//   );
+const sumIntervals_V2 = (ArrayOfIntervals) => {
+  sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).map(
+    (interval, i, sortedArray) => {
+      interval[1] > sortedArray[i + 1][0] && !sortedArray[i + 1][0]
+        ? ""[(interval[1], sortedArray[i + 1][0])]
+        : "";
+    }
+  );
 
-//   return "answer = ?";
-// };
+  return "answer = ?";
+};
 
 // V3
-// const sumIntervals_V3 = (ArrayOfIntervals) => {
-//   sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).map(
-//     (interval, i, sortedArray) => {
-//       if (i < sortedArray.length - 1 && interval[1] > sortedArray[i + 1][0]) {
-//         return `Новый интервал: ${[interval[0], sortedArray[i + 1][1]]}`;
-//       } else {
-//         return `Последний элемент: ${interval}`;
-//       }
-//     }
-//   );
-//   return sortedArray;
-// };
+const sumIntervals_V3 = (ArrayOfIntervals) => {
+  sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).map(
+    (interval, i, sortedArray) => {
+      if (i < sortedArray.length - 1 && interval[1] > sortedArray[i + 1][0]) {
+        return `Новый интервал: ${[interval[0], sortedArray[i + 1][1]]}`;
+      } else {
+        return `Последний элемент: ${interval}`;
+      }
+    }
+  );
+  return sortedArray;
+};
 
 // V4 (Работает, но не проходит часть тестов; Time: 866ms, Passed: 2, Failed: 3)
-const sumIntervals = (ArrayOfIntervals) => {
+const sumIntervals_V4 = (ArrayOfIntervals) => {
   let mergedArray = [];
   sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]);
 
@@ -101,42 +101,42 @@ const sumIntervals = (ArrayOfIntervals) => {
 };
 
 // V4-1
-// const sumIntervals_V4 = (ArrayOfIntervals) => {
-//   let mergedArray = [];
-//   sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).map(
-//     (interval, i, sortedArray) => {
-//       if (i < sortedArray.length - 1 && interval[1] > sortedArray[i + 1][0]) {
-//         mergedArray.push([interval[0], sortedArray[i + 1][1]]);
-//         i++;
-//       } else {
-//         mergedArray.push(interval);
-//       }
-//     }
-//   );
-//   return mergedArray;
-// };
+const sumIntervals_V4_1 = (ArrayOfIntervals) => {
+  let mergedArray = [];
+  sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).map(
+    (interval, i, sortedArray) => {
+      if (i < sortedArray.length - 1 && interval[1] > sortedArray[i + 1][0]) {
+        mergedArray.push([interval[0], sortedArray[i + 1][1]]);
+        i++;
+      } else {
+        mergedArray.push(interval);
+      }
+    }
+  );
+  return mergedArray;
+};
 
 // V5 (forEach нормально не работает)
-// const sumIntervals_V5 = (ArrayOfIntervals) => {
-//   let mergedArray = [];
-//   sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).forEach(
-//     (interval, i, sortedArray) => {
-//       if (i < sortedArray.length - 1 && interval[1] > sortedArray[i + 1][0]) {
-//         mergedArray.push([interval[0], sortedArray[i + 1][1]]);
-//         i++;
-//       } else {
-//         mergedArray.push(interval);
-//       }
-//     }
-//   );
+const sumIntervals_V5 = (ArrayOfIntervals) => {
+  let mergedArray = [];
+  sortedArray = ArrayOfIntervals.sort((a, b) => a[0] - b[0]).forEach(
+    (interval, i, sortedArray) => {
+      if (i < sortedArray.length - 1 && interval[1] > sortedArray[i + 1][0]) {
+        mergedArray.push([interval[0], sortedArray[i + 1][1]]);
+        i++;
+      } else {
+        mergedArray.push(interval);
+      }
+    }
+  );
 
-//   return mergedArray.reduce(
-//     (result, interval) => result + interval[1] - interval[0],
-//     0
-//   );
-// };
+  return mergedArray.reduce(
+    (result, interval) => result + interval[1] - interval[0],
+    0
+  );
+};
 
-// V6 (Пока не работает :( )
+// V6 Пока не работает :(
 const sumIntervals_V6 = (arrayOfIntervals) => {
   arrayOfIntervals
     .sort((a, b) => a[0] - b[0])
@@ -157,12 +157,42 @@ const sumIntervals_V6 = (arrayOfIntervals) => {
   );
 };
 
-// V7 splice test
-const sumIntervals_V7 = (arrayOfIntervals) =>
-  arrayOfIntervals
-    .sort((a, b) => a[0] - b[0])
-    .filter((interval, i, arrayOfIntervals) => interval) // TODO: Доделать
-    .reduce((result, interval) => result + interval[1] - interval[0], 0);
+// V7 Работает, но не проходит по времени: Execution Timed Out (12000 ms)
+const sumIntervals = (arrayOfIntervals) => {
+  arrayOfIntervals.sort((a, b) => a[0] - b[0]);
+
+  for (let i = 0; i < arrayOfIntervals.length; i++) {
+    // Если 2 интервал находиться в 1
+    if (
+      i < arrayOfIntervals.length - 1 &&
+      arrayOfIntervals[i][0] <= arrayOfIntervals[i + 1][0] &&
+      arrayOfIntervals[i][1] >= arrayOfIntervals[i + 1][1]
+    ) {
+      arrayOfIntervals.splice(i, 2, [
+        arrayOfIntervals[i][0],
+        arrayOfIntervals[i][1],
+      ]);
+      i--;
+    }
+    // Если 2 интервала пересекаются
+    else if (
+      i < arrayOfIntervals.length - 1 &&
+      arrayOfIntervals[i][1] >= arrayOfIntervals[i + 1][0]
+    ) {
+      arrayOfIntervals.splice(i, 2, [
+        arrayOfIntervals[i][0],
+        arrayOfIntervals[i + 1][1],
+      ]);
+      i--;
+    } else {
+      continue;
+    }
+  }
+  return arrayOfIntervals.reduce(
+    (result, interval) => result + interval[1] - interval[0],
+    0
+  );
+};
 
 console.log(
   "\n Test 1: ",
@@ -217,5 +247,22 @@ console.log(
     [7, 10],
     [9, 12],
   ]),
-  " | answer = 11\n"
+  " | answer = 11\n",
+  "Random test 5: ",
+  sumIntervals([
+    [1, 20],
+    [2, 19],
+    [5, 15],
+    [8, 12],
+  ]),
+  " | answer = 19\n",
+  "Random test 6: ",
+  sumIntervals([
+    [2, 3],
+    [2, 6],
+    [2, 4],
+    [2, 9],
+    [2, 5],
+  ]),
+  " | answer = 7\n"
 );

@@ -22,7 +22,10 @@
 // };
 
 const binarray = (array) => {
-  console.log("Рандомный тест с массивом: ", array);
+  console.log(
+    "-----------------------------\nРандомный тест с массивом: ",
+    array
+  );
 
   if (
     array.reduce((element, result) => result + element, 0) ==
@@ -44,4 +47,6 @@ const genRandomArray = () => {
   return randomArray;
 };
 
-console.log(binarray(genRandomArray()));
+console.log("Normal test: " + binarray([1, 1, 0, 1, 1, 0, 1, 1]));
+
+console.log("Random test: " + binarray(genRandomArray()));

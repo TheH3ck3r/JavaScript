@@ -21,6 +21,7 @@
 //   return countOfArrayNumbers;
 // };
 
+// V1
 const binarray = (array) => {
   console.log(
     "-----------------------------\nРандомный тест с массивом: ",

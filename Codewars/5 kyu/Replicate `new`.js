@@ -33,14 +33,32 @@
 
 // var john = nouveau(Person, 'John', 30); // same result as above
 
-// V1 Работает, но не проходит тест; `new` is not allowed.: expected 'const result = (Constructor, ...args)…' not to match /\bnew\b/
+// V1: Работает, но не проходит тест; `new` is not allowed.: expected 'const result = (Constructor, ...args)…' not to match /\bnew\b/
 const result = (Constructor, ...args) => new Constructor(...args);
 const nouveau_V1 = (Constructor, ...args) => result(Constructor, ...args);
 
-// V2 Работает, но не проходит тест; constructor: function Fnc(){ return Fnc; }: expected Fnc{} to equal [Function fn]
+// V2: Работает, но не проходит тест; constructor: function Fnc(){ return Fnc; }: expected Fnc{} to equal [Function fn]
 const nouveau_V2 = (ConstructorName, ...args) => {
   var instance = Object.create(ConstructorName.prototype);
-  var result = Constructor.apply(instance, args);
+  var result = ConstructorName.apply(instance, args);
 
   return typeof result === "object" && result !== null ? result : instance;
+};
+
+// V3: Работает но, не проходит часть тестов;
+// 1. constructor: function Nil(){ return Object.create(null); }: expected Nil{} to equal {}
+// 2. constructor: function Top(){ return Object.prototype; }: expected Top{} to equal { …(12) }
+const nouveau_V3 = (constructor, ...args) => {
+  let obj = {};
+  Object.setPrototypeOf(obj, constructor.prototype);
+  let result = constructor.apply(obj, args);
+  return result instanceof Object ? result : obj;
+};
+
+// V4: Работает, но не проходит тест: function Fnc(){ return Fnc; }: expected Fnc{} to equal [Function fn]
+const nouveau_V4 = (constructor, ...args) => {
+  let obj = {};
+  Object.setPrototypeOf(obj, constructor.prototype);
+  let result = constructor.apply(obj, args);
+  return typeof result === "object" && result !== null ? result : obj;
 };

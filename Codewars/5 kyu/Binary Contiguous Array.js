@@ -21,21 +21,20 @@
 //   return countOfArrayNumbers;
 // };
 
-// V1
 const binarray = (array) => {
-  console.log(
-    "-----------------------------\nРандомный тест с массивом: ",
-    array
-  );
+  let sumToIndex = { 0: -1 };
+  let maxLen = 0;
+  let sum = 0;
 
-  if (
-    array.reduce((element, result) => result + element, 0) ==
-    array.length / 2
-  ) {
-    return array.length;
-  } else {
-    return "Unluck";
-  }
+  array.reduce((result, number, i) => {
+    sum += number === 0 ? -1 : 1;
+    sum in sumToIndex
+      ? (maxLen = Math.max(maxLen, i - sumToIndex[sum]))
+      : (sumToIndex[sum] = i);
+    return result + number;
+  }, 0);
+
+  return maxLen;
 };
 
 // ----------------------------------------Тесты-------------------------------------
@@ -48,6 +47,16 @@ const genRandomArray = () => {
   return randomArray;
 };
 
-console.log("Normal test: " + binarray([1, 1, 0, 1, 1, 0, 1, 1]));
+// Smart solution:
+// const binarray = (a) => {
+//   const first = { 0: -1 };
+//   let [acc, max] = [0, 0];
 
-console.log("Random test: " + binarray(genRandomArray()));
+//   a.forEach((bit, idx) => {
+//     acc += 2 * bit - 1;
+//     if (!(acc in first)) first[acc] = idx;
+//     max = Math.max(max, idx - first[acc]);
+//   });
+
+//   return max;
+// };

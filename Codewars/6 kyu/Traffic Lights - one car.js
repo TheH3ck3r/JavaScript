@@ -141,3 +141,5 @@ const trafficLights = (road, n) => {
 };
 
 console.log(trafficLights("C...G............G......", 10));
+
+// Not completed

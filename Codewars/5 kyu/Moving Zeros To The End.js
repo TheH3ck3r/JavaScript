@@ -4,3 +4,5 @@
 
 const moveZeros = (array) =>
   array.filter((el) => el !== 0).concat(array.filter((el) => el === 0));
+
+// Done!

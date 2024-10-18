@@ -69,6 +69,8 @@ const sumIntervals = (arrayOfIntervals) => {
   );
 };
 
+// Done!
+
 // Smart solution:
 // function sumIntervals(xs) {
 //   let ys = xs.sort(([a, b], [c, d]) => a - c);

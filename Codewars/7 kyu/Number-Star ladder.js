@@ -32,3 +32,4 @@ const pattern = (n) => {
   return output;
 };
 
+// Done!

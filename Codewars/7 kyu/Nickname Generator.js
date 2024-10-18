@@ -29,6 +29,8 @@ const nicknameGenerator = (name) => {
   return (nickname = isVowel(name[2]) ? name.slice(0, 4) : name.slice(0, 3));
 };
 
+// Done!
+
 // Smart solution:
 // const nicknameGenerator = (name) =>
 //   !name[3]

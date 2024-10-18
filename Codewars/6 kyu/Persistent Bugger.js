@@ -17,6 +17,8 @@ const persistence = (number) => {
   return i;
 };
 
+// Done!
+
 // Smart solution:
 // function persistence(num) {
 //   for (var i = 0; num > 9; i++) {

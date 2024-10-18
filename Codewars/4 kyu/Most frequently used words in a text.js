@@ -42,3 +42,5 @@ const topThreeWords = (text) =>
     .slice(0, 3)
     .filter((arr) => (arr[0] !== "'") & (arr[0] !== ""))
     .map((arr) => arr[0]);
+
+// Done!

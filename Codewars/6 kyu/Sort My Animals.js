@@ -17,3 +17,5 @@ const sortAnimal = (animals) => [...animals].sort((a, b) => a.numberOfLegs - b.n
   { name: "Spider", numberOfLegs: 8 },
   { name: "Bug", numberOfLegs: 4 },
 ];
+
+// Done!

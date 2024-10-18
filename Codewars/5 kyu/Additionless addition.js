@@ -14,6 +14,8 @@ const add = (x, y) => {
   return x;
 };
 
+// Done!
+
 // Smart solution:
 // function add (x, y) {
 // 	return !y ? x : add(x ^ y, (x & y) << 1);

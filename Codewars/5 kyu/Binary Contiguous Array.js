@@ -47,6 +47,8 @@ const genRandomArray = () => {
   return randomArray;
 };
 
+// Done!
+
 // Smart solution:
 // const binarray = (a) => {
 //   const first = { 0: -1 };

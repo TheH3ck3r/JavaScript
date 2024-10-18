@@ -44,6 +44,8 @@ class SmartTrafficLight {
   }
 }
 
+// Done!
+
 // Smart solution:
 // class SmartTrafficLight {
 //   constructor(...arr) {

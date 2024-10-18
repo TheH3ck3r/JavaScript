@@ -38,6 +38,8 @@ const sortByBit = (arr) => {
   });
 };
 
+// Done!
+
 // Smart solution:
 // const sortByBit = (arr) =>
 //   arr.sort(

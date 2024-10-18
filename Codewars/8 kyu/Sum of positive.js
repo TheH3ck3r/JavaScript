@@ -8,3 +8,5 @@ const positiveSum = (arr) => {
     0
   );
 };
+
+// Done!

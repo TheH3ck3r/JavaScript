@@ -24,3 +24,5 @@ const makePassword = (phrase) => {
   }
   return password;
 };
+
+// Done!

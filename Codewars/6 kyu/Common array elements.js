@@ -32,6 +32,8 @@ function common(a, b, c) {
   return res;
 }
 
+// Done!
+
 // Smart solution:
 // const common = (a, b, c) => {
 //   [a, b, c] = [a, b, c].map((el) =>

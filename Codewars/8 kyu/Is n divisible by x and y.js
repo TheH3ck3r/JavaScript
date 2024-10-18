@@ -12,3 +12,4 @@ const isDivisible = (n, x, y) => {
   } else return false;
 };
 
+// Done!

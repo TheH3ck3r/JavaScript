@@ -30,6 +30,8 @@ const highestRank = (array) => {
   return numberWithMaxCount;
 };
 
+// Done!
+
 // Smart solution
 // const highestRank = (arr) =>
 //   arr.sort(

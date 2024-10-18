@@ -25,6 +25,8 @@ const moreZeros = (string) => {
   return [...new Set(answer)];
 };
 
+// Done!
+
 // Smart solution:
 // const moreZeros = (string) => {
 //   [...new Set(string)].filter(

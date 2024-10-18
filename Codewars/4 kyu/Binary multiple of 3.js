@@ -26,3 +26,5 @@ console.log(multipleOf3Regex.test("011")); // should be true
 console.log(multipleOf3Regex.test("110")); // should be true
 console.log(multipleOf3Regex.test("111")); // should be false
 console.log(multipleOf3Regex.test(" abc ")); // should be false
+
+// Done!

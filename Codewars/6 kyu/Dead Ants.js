@@ -30,6 +30,8 @@ const deadAntCount = (ants) =>
         )
       );
 
+// Done!
+
 // Smart solution V1:
 // const deadAntCount = (ants) =>
 //   (ants || "").replace(/ant|[^ant]/g, "").split``

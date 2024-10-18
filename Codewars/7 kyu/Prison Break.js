@@ -52,6 +52,8 @@ const freedPrisoners = (prison) => {
   return count;
 };
 
+// Done!
+
 // Smart solution:
 // const freedPrisoners = (p) =>
 //   +p[0] && p.slice(1).reduce((s, v, i) => s + (v ^ p[i]), 1);

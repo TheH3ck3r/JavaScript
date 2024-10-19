@@ -31,4 +31,13 @@ var createCounter = function (n) {
   };
 };
 
+// V2: 40ms
+const createCounter = (n) => {
+  let counter = n - 1;
+  return () => {
+    counter++;
+    return counter;
+  };
+};
+
 // Done!

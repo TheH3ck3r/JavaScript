@@ -31,3 +31,5 @@ Array.prototype.last = function () {
 // Tests
 const arr = [];
 console.log(arr.last());
+
+// Done!

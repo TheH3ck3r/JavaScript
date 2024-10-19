@@ -24,9 +24,7 @@ Array.prototype.last = function () {
 };
 
 // V2: 52ms
-Array.prototype.last = function () {
-  return this.length ? this.at(-1) : -1;
-};
+Array.prototype.last = () => (this.length ? this.at(-1) : -1);
 
 // Tests
 const arr = [];

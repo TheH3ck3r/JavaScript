@@ -18,7 +18,7 @@
 // arr is a valid JSON array
 // 0 <= arr.length <= 1000
 
-// V1: 58ms
+// V1: 58ms (Можно использовать в проектах)
 Array.prototype.last = function () {
   return this.length > 0 ? this[this.length - 1] : -1;
 };

@@ -24,7 +24,7 @@
 
 // V1: 6ms | P.S: NICE!
 const isPalindrome = (str) => {
-  str = str.replace(/[^a-zA-Z]/g, "");
+  str = str.replace(/[^a-zA-Z0-9]/g, "");
   let leftIndex = 0;
   let rightIndex = str.length - 1;
   while (leftIndex < rightIndex) {

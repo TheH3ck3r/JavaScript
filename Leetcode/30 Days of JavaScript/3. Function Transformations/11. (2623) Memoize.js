@@ -49,58 +49,21 @@
 // fib(5) = 8 // "call"
 // // "getCallCount" - total call count: 1
 
-// function memoize(fn) {
-//   let calls = 0;
-//   let cash = [];
-//   return function (...args) {
-//     if (args) {
-//       if (cash.includes(fn(...args))) {
-//         cash.push(fn(...args));
-//         return fn(...args);
-//       }
-//       calls++;
-//       cash.push(fn(...args));
-//       return fn(...args);
-//     } else {
-//       return calls;
-//     }
-//   };
-// }
-
-// function memoize(fn) {
-//   let calls = 0;
-//   return function (...args) {
-//     if (args) {
-//       calls++;
-//       return fn(...args);
-//     } else {
-//       return calls;
-//     }
-//   };
-// }
-
 function memoize(fn) {
-  let calls = 0;
-  let cash = [];
   return function (...args) {
-    console.log("cash: ", cash);
-    answer = fn(...args);
-    console.log("answer: ", answer);
-    console.log(cash.includes(answer));
-    console.log("calls: ", calls);
-    if (args) {
-      if (cash.includes(answer)) {
-        console.log("Кэш");
-        cash.push(answer);
-        return answer;
+    let answer = [];
+    let counter = 0;
+    for (let i = 0; i < args.length; i++) {
+      if (args[i].length != 0) {
+        console.log("args: ", args[i]);
+        console.log(fn(args[i]));
+        answer.push(fn(args[i]));
+        counter++;
       } else {
-        calls++;
-        cash.push(answer);
-        return answer;
+        answer.push(counter);
       }
-    } else {
-      return calls;
     }
+    return answer;
   };
 }
 
@@ -116,7 +79,6 @@ function memoize(fn) {
  */
 
 const memoizedSum = memoize((fn = (a, b) => a + b));
-console.log(memoizedSum(2, 2));
-console.log(memoizedSum(2, 2));
+console.log(memoizedSum([[2, 2], [2, 2], [], [1, 2], []]));
 
 // Not completed
